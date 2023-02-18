@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+
+<body>
+    <h3>This is not confused anymore</h3>
+    <p onclick="this.innerText = `I am clicked by ${fullName}`">Don't Click Me</p>
+    <script>
+        const myObj = {
+            name: "Sharifuzzaman Shajib",
+            getFullName: function () {
+                console.log(this);
+                return 'Md ' + this.name;
+            }
+        }
+
+        const anotherObject = {
+            name: "Anik"
+        }
+        anotherObject.getFullName = myObj.getFullName;
+        const fullName = anotherObject.getFullName();
+        console.log(fullName);
+        const myName = myObj.getFullName();
+        console.log(myName);
+
+        console.log(this); // window
+    </script>
+</body>
+
+</html>
